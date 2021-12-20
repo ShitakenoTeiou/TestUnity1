@@ -66,7 +66,7 @@ public class JsonActivater : MonoBehaviour
 
         for (int i = 0; i < 7; i++)
         {
-            junctionArr[i] = new SaveData.Junction(junctionHoldingCell[i], junctionHoldingCell[i], junctionHoldingCellCharacter[i]);
+            junctionArr[i] = new SaveData.Junction(junctionHoldingCell[i], junctionNextjunction[i], junctionHoldingCellCharacter[i]);
         }
     }
     //void Start()
