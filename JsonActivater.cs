@@ -17,12 +17,20 @@ public class JsonActivater : MonoBehaviour
     public SaveData.Junction[] junctionArr = new SaveData.Junction[7];
     public List<int>[] junctionNextjunction = new List<int>[100];
     public List<int>[] junctionHoldingCell = new List<int>[100];
+    public List<int>[] junctionHoldingCellCharacter = new List<int>[100];
     public int junctionCount;
 
 
     public void Start()
     {
         SetMapData();
+        for (int i = 0; i < 6; i++)
+        {
+            SMD.junctionList.Add(junctionArr[i]);
+        }
+
+        Debug.Log(JsonUtility.ToJson(SMD));
+
 
     }
 
@@ -48,7 +56,17 @@ public class JsonActivater : MonoBehaviour
 
         for (int i = 0; i < 7; i++)
         {
-            junctionArr[i] = new SaveData.Junction(junctionHoldingCell[i], junctionHoldingCell[i]);
+            junctionHoldingCellCharacter[i] = new List<int>();
+            for (int j = 0; j < junctionHoldingCell[i].Count; j++)
+            {
+                junctionHoldingCellCharacter[i].Add(celleffectNumArr[junctionHoldingCell[i][j]]);
+            }
+            
+        }
+
+        for (int i = 0; i < 7; i++)
+        {
+            junctionArr[i] = new SaveData.Junction(junctionHoldingCell[i], junctionHoldingCell[i], junctionHoldingCellCharacter[i]);
         }
     }
     //void Start()

@@ -17,13 +17,17 @@ namespace SaveData
         public List<int> nextJunctionArr = new List<int>();
         Cell[] holdedCell = new Cell[136];
         
-        public Junction(List<int> holdingCellNum, List<int> nextJunctionArr)
+        public Junction(List<int> holdingCellNum, List<int> nextJunctionArr,List<int> cellCharacterArr)
         {
             this.holdingCellNum = holdingCellNum;
             this.nextJunctionArr = nextJunctionArr;
 
-            for(int i = 0; i< holdingCellNum.Count; i++)
-            holdingCellArr.Add(Cell);
+            for (int i = 0; i < holdingCellNum.Count; i++)
+            {
+                holdedCell[i] = new Cell(holdingCellNum[i], cellCharacterArr[i]);
+                holdingCellArr.Add(holdedCell[i]);
+            }
+                
         }
     }
 
