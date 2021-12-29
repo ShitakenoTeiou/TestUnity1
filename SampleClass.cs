@@ -43,7 +43,7 @@ namespace SaveData
             int RowNum;
             int ColumnNum;
             RowNum = (PositionNum % 8) + 1;
-            ColumnNum = ((PositionNum - (RowNum - 1)) / 8) + 1;
+            ColumnNum = (PositionNum % 17) + 1;
             cordinates[0] = RowNum;
             cordinates[1] = ColumnNum;
             this.effectNum = effectNum;
